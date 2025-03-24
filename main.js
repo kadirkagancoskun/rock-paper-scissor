@@ -1,7 +1,7 @@
 console.log("Hi");
 
 //Define variables plasyersChoice, computerChoice, playerScore, computerScore
-let playersChoice;
+let playerChoice;
 let computerChoice
 let playerScore;
 let computerScore;
@@ -17,12 +17,18 @@ function getComputerChoice () {
         computerChoice="scissor";
     }
 
-    console.log(computerChoice) ;
+    console.log("Computers choice for this round: " + computerChoice) ;
+}
+
+
+//Get users choice
+function getPlayerChoice (){
+playerChoice = prompt("Please choose one: rock, paper, scissor", "Harry Potter");
+console.log("Players choice for this round: " + playerChoice);
 }
 
 getComputerChoice();
-
-//Get users choice
+getPlayerChoice();
 
 //Decide the winner of the round and keep track of points
 
