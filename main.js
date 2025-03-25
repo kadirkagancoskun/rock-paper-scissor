@@ -14,7 +14,7 @@ function getComputerChoice () {
     } else if (Math.floor(Math.random() * 3)===1){
         computerChoice="paper";
     } else {
-        computerChoice="scissor";
+        computerChoice="scissors";
     }
 
     return computerChoice;
@@ -22,7 +22,7 @@ function getComputerChoice () {
 
 //Get users choice
 function getPlayerChoice (){
-playerChoice = prompt("Please choose one: rock, paper, scissor", "Harry Potter");
+playerChoice = prompt("Please choose one: rock, paper, scissors", "rock");
 return playerChoice;
 }
 
@@ -30,13 +30,13 @@ return playerChoice;
 
 function playRound(a, b){
 
-    if(a=="rock"&b=="scissor"){
+    if(a=="rock"&b=="scissors"){
         computerScore ++;
         return `Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`
     } else if (a=="paper"&b=="rock"){
         computerScore ++;
         return `Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`
-    } else if (a=="scissor"&b=="paper"){
+    } else if (a=="scissors"&b=="paper"){
         computerScore ++;
        return `Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`
     } else if (a===b){
