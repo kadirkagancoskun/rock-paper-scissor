@@ -1,8 +1,7 @@
 console.log("Hi");
 
-//Define variables plasyersChoice, computerChoice, playerScore, computerScore
-let computerChoice;
-let playerChoice;
+//Define variables playerScore, computerScore
+
 let playerScore=0;
 let computerScore=0;
 
@@ -10,14 +9,12 @@ let computerScore=0;
 
 function getComputerChoice () {
     if (Math.floor(Math.random() * 3)===0){
-        computerChoice="rock";
+        return "rock";
     } else if (Math.floor(Math.random() * 3)===1){
-        computerChoice="paper";
+        return "paper";
     } else {
-        computerChoice="scissors";
+        return "scissors";
     }
-
-    return computerChoice;
 }
 
 //Get users choice
@@ -51,17 +48,20 @@ function playRound(a, b){
 //Function that plays the game best of five
 function playFiveGames(){
     for (let i = 0; i<5; i++){
-        let a = getComputerChoice();
-        let b = getPlayerChoice();
-    console.log(playRound(a,b));
+        let computerChoice = getComputerChoice();
+        let playerChoice = getPlayerChoice();
+    console.log(`Round: ${i + 1} `+ playRound(computerChoice,playerChoice));
     if(playerScore === 3 || computerScore === 3){
         break;
     }
     }
     if(playerScore>computerScore){
     console.log(`Game is over. The winner is player! Score: player: ${playerScore} computer: ${computerScore}`)
-    }else{
-    console.log(`Game is over. Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`)    
+    }else if(playerScore<computerScore){
+        console.log(`Game is over. The winner is computer! Score: player: ${playerScore} computer: ${computerScore}`)
+    }
+    else{
+    console.log(`Game is over. No Winner. Score: player: ${playerScore} computer: ${computerScore}`)    
     }
 }
 
