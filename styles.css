@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 200px;
+}
+
+button{
+    border-radius: 20px;
+    height: 50px;
+    width: 70px;
+}
+
+.gameArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    
+    gap: 30px;
+}

@@ -5,6 +5,10 @@ console.log("Hi");
 let playerScore=0;
 let computerScore=0;
 
+let rockButton = document.querySelector("#rockBtn");
+rockButton.addEventListener("click", ()=>{
+    alert("rock");
+})
 //Get computers choice
 
 function getComputerChoice () {
@@ -17,11 +21,6 @@ function getComputerChoice () {
     }
 }
 
-//Get users choice
-function getPlayerChoice (){
-playerChoice = prompt("Please choose one: rock, paper, scissors", "rock");
-return playerChoice;
-}
 
 //Play a round and decide the winner of the round and increase/decrease corresponding score
 
@@ -50,17 +49,16 @@ function playFiveGames(){
     for (let i = 0; i<5; i++){
         let computerChoice = getComputerChoice();
         let playerChoice = getPlayerChoice();
-    console.log(`Round: ${i + 1} `+ playRound(computerChoice,playerChoice));
+        console.log(`Round: ${i + 1} `+ playRound(computerChoice,playerChoice));
     if(playerScore === 3 || computerScore === 3){
         break;
     }
     }
     if(playerScore>computerScore){
-    console.log(`Game is over. The winner is player! Score: player: ${playerScore} computer: ${computerScore}`)
+        console.log(`Game is over. The winner is player! Score: player: ${playerScore} computer: ${computerScore}`)
     }else if(playerScore<computerScore){
         console.log(`Game is over. The winner is computer! Score: player: ${playerScore} computer: ${computerScore}`)
-    }
-    else{
+    }else{
     console.log(`Game is over. No Winner. Score: player: ${playerScore} computer: ${computerScore}`)    
     }
 }
