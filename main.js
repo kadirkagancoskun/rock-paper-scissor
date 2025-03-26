@@ -5,10 +5,32 @@ console.log("Hi");
 let playerScore=0;
 let computerScore=0;
 
+let roundContainer = document.querySelector("#roundContainer");
+
 let rockButton = document.querySelector("#rockBtn");
 rockButton.addEventListener("click", ()=>{
-    alert("rock");
+    let computerChoice = getComputerChoice();
+    playRound(computerChoice, rockButton.value);
 })
+
+let paperButton = document.querySelector("#paperBtn");
+paperButton.addEventListener("click", ()=>{
+    let computerChoice = getComputerChoice();
+    playRound(computerChoice, paperButton.value);
+})
+
+let scissorsButton = document.querySelector("#scissorsBtn");
+scissorsButton.addEventListener("click", ()=>{
+    let computerChoice = getComputerChoice();
+    playRound(computerChoice, scissorsButton.value);
+})
+
+//Get player choice using buttons
+
+function getPlayerChoice (btnValue){
+
+}
+
 //Get computers choice
 
 function getComputerChoice () {
@@ -25,42 +47,56 @@ function getComputerChoice () {
 //Play a round and decide the winner of the round and increase/decrease corresponding score
 
 function playRound(a, b){
+    if(computerScore+playerScore<5){
 
     if(a=="rock"&b=="scissors"){
         computerScore ++;
-        return `Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`
+        roundContainer.textContent = `Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`
     } else if (a=="paper"&b=="rock"){
         computerScore ++;
-        return `Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`
+        roundContainer.textContent = `Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`
     } else if (a=="scissors"&b=="paper"){
         computerScore ++;
-       return `Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`
-    } else if (a===b){
-        return `No winner. Score: player: ${playerScore} computer: ${computerScore}`
+        roundContainer.textContent = `Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`
+    } else if (a==b){
+        roundContainer.textContent = `No winner. Score: player: ${playerScore} computer: ${computerScore}`
     } else {
         playerScore ++;
-        return `Winner is player. Score: player: ${playerScore} computer: ${computerScore}`
+        roundContainer.textContent = `Winner is player. Score: player: ${playerScore} computer: ${computerScore}`
+    }
+    } else {
+        if(playerScore>computerScore){
+            alert(`Game is over. The winner is player! Score: player: ${playerScore} computer: ${computerScore}`)
+            computerScore=0;
+            playerScore=0;
+            roundContainer.textContent = `Winner is player. Score: player: ${playerScore} computer: ${computerScore}`
+        }else if(playerScore<computerScore){
+            alert(`Game is over. The winner is computer! Score: player: ${playerScore} computer: ${computerScore}`)
+            computerScore=0;
+            playerScore=0;
+            roundContainer.textContent = `Winner is player. Score: player: ${playerScore} computer: ${computerScore}`
+        }else{
+            alert(`Game is over. No Winner. Score: player: ${playerScore} computer: ${computerScore}`)    
+            computerScore=0;
+            playerScore=0;
+            roundContainer.textContent = `Winner is player. Score: player: ${playerScore} computer: ${computerScore}`
+        }
     }
 }
 
 
 //Function that plays the game best of five
-function playFiveGames(){
-    for (let i = 0; i<5; i++){
-        let computerChoice = getComputerChoice();
-        let playerChoice = getPlayerChoice();
-        console.log(`Round: ${i + 1} `+ playRound(computerChoice,playerChoice));
-    if(playerScore === 3 || computerScore === 3){
-        break;
-    }
-    }
+
+    if(playerScore === 5 || computerScore === 5){
+        
+    
+
     if(playerScore>computerScore){
-        console.log(`Game is over. The winner is player! Score: player: ${playerScore} computer: ${computerScore}`)
+        alert(`Game is over. The winner is player! Score: player: ${playerScore} computer: ${computerScore}`)
     }else if(playerScore<computerScore){
-        console.log(`Game is over. The winner is computer! Score: player: ${playerScore} computer: ${computerScore}`)
+        alert(`Game is over. The winner is computer! Score: player: ${playerScore} computer: ${computerScore}`)
     }else{
-    console.log(`Game is over. No Winner. Score: player: ${playerScore} computer: ${computerScore}`)    
+        alert(`Game is over. No Winner. Score: player: ${playerScore} computer: ${computerScore}`)    
     }
 }
 
-playFiveGames();
