@@ -51,18 +51,18 @@ function playRound(a, b){
 
     if(a=="rock"&b=="scissors"){
         computerScore ++;
-        roundContainer.textContent = `Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`
+        roundContainer.textContent = `Computer wins the round. Score: player: ${playerScore} computer: ${computerScore}`
     } else if (a=="paper"&b=="rock"){
         computerScore ++;
-        roundContainer.textContent = `Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`
+        roundContainer.textContent = `Computer wins the round. Score: player: ${playerScore} computer: ${computerScore}`
     } else if (a=="scissors"&b=="paper"){
         computerScore ++;
-        roundContainer.textContent = `Winner is computer. Score: player: ${playerScore} computer: ${computerScore}`
+        roundContainer.textContent = `Computer wins the round. Score: player: ${playerScore} computer: ${computerScore}`
     } else if (a==b){
-        roundContainer.textContent = `No winner. Score: player: ${playerScore} computer: ${computerScore}`
+        roundContainer.textContent = `Nobody wins the round. Score: player: ${playerScore} computer: ${computerScore}`
     } else {
         playerScore ++;
-        roundContainer.textContent = `Winner is player. Score: player: ${playerScore} computer: ${computerScore}`
+        roundContainer.textContent = `Player wins the round. Score: player: ${playerScore} computer: ${computerScore}`
     }
     } else {
         if(playerScore>computerScore){
@@ -84,19 +84,4 @@ function playRound(a, b){
     }
 }
 
-
-//Function that plays the game best of five
-
-    if(playerScore === 5 || computerScore === 5){
-        
-    
-
-    if(playerScore>computerScore){
-        alert(`Game is over. The winner is player! Score: player: ${playerScore} computer: ${computerScore}`)
-    }else if(playerScore<computerScore){
-        alert(`Game is over. The winner is computer! Score: player: ${playerScore} computer: ${computerScore}`)
-    }else{
-        alert(`Game is over. No Winner. Score: player: ${playerScore} computer: ${computerScore}`)    
-    }
-}
 
